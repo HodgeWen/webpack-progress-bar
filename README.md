@@ -9,7 +9,7 @@ yarn add webpack-progress-bar-plugin -D
 
 # 使用 use
 ``` js
-const WebpackProgressBar = require('webpack-progress-bar-plugin')
+const WebpackProgressBar = require('webpack-progress-bar')
 
 plugins: [
   new WebpackProgressBar()
