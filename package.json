@@ -1,0 +1,14 @@
+{
+  "name": "webpack-progress-bar",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Whj",
+  "description": "webpack-progress-bar",
+  "repository": "git@github.com:wenhongjie/webpack-progress-bar.git",
+  "dependencies": {
+    "colors": "^1.3.3",
+    "progress": "^2.0.3",
+    "webpack": ">= 4.0.0"
+  }
+}
