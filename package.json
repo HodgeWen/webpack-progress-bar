@@ -10,5 +10,14 @@
     "colors": "^1.3.3",
     "progress": "^2.0.3",
     "webpack": ">= 4.0.0"
-  }
+  },
+  "keywords": [
+    "node",
+    "webpack progress",
+    "react",
+    "progress",
+    "webpack",
+    "cli",
+    "frontend"
+  ]
 }
