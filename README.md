@@ -22,6 +22,8 @@ plugins: [
 // default options
 new WebpackProgressBar({
   incomplete: {      
+    // 'black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white'
+    // '黑色'，'红色'，'绿色'，'黄色'，'蓝色'，'品红'，'青色'，'白色' 
     bg: 'white',
     content: ' '
   },
@@ -29,9 +31,9 @@ new WebpackProgressBar({
     bg: 'green',
     content: ' '
   },
-  width: 25,
-  clear: true,
-  total: 100
+  width: 25, // Control progress bar width. 控制进度条宽度
+  clear: true, // Clear the progress bar after compilation is complete.编译完成后清除进度条。
+  total: 100 
 })
 
 ```
