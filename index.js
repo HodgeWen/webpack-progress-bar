@@ -26,7 +26,7 @@ module.exports = function WebpackProgess ({
   const incompleteContent = getContent(incomplete.content)
   const completeContent = getContent(complete.content)
 
-  const format = `:bar  ${':percent'.green} ${':elapseds'.blue}`
+  const format = `:bar  ${':percent'.green} ${':elapseds'.blue} \n`
   const bar = new ProgressBar(format, { 
     total, width, clear,
     incomplete: incompleteBg ? incompleteContent[incompleteBg] : incompleteContent,
