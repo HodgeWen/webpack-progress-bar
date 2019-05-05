@@ -1,6 +1,6 @@
 {
   "name": "webpack-progress-bar",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "index.js",
   "license": "MIT",
   "author": "Whj",
@@ -11,6 +11,9 @@
     "progress": "^2.0.3",
     "webpack": ">= 4.0.0"
   },
+  "scripts": {
+    "test": "webpack"
+  },
   "keywords": [
     "node",
     "webpack progress",
@@ -19,5 +22,8 @@
     "webpack",
     "cli",
     "frontend"
-  ]
+  ],
+  "devDependencies": {
+    "webpack-cli": "^3.3.2"
+  }
 }
