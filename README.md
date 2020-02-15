@@ -3,8 +3,8 @@
 
 # 安装 install
 ```
-npm i webpack-progress-bar-plugin -D 
-yarn add webpack-progress-bar-plugin -D
+npm i webpack-progress-bar -D 
+yarn add webpack-progress-bar -D
 ```
 
 # 使用 use
