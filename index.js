@@ -1,43 +1,48 @@
 const ProgressBar = require('progress')
-const webpack = require('webpack')
+const { ProgressPlugin } = require('webpack')
 require('colors')
 
-const getBg = bg => (bg ? 'bg' + bg.slice(0, 1).toUpperCase() + bg.slice(1) : '')
+const getBg = (bg) => (bg ? 'bg' + bg.slice(0, 1).toUpperCase() + bg.slice(1) : '')
 
-const getContent = content => (content !== undefined ? content : ' ')
+const getContent = (content) => (content !== undefined ? content : ' ')
 
-module.exports = function WebpackProgess({
-  incomplete = {
-    bg: 'white',
-    content: ' '
-  },
-  complete = {
-    bg: 'green',
-    content: ' '
-  },
-  width = 25,
-  clear = true,
-  total = 100
-} = {}) {
-  const incompleteBg = getBg(incomplete.bg)
-  const completeBg = getBg(complete.bg)
+module.exports = class WebpackProgessBar extends ProgressPlugin {
+  constructor(options = {}) {
+    // 加入到钩子队列中
+    super((...percent) => {
+      this.bar.update(percent)
+    })
+    this.options = options
+    this._init()
+  }
 
-  const incompleteContent = getContent(incomplete.content)
-  const completeContent = getContent(complete.content)
+  _init() {
+    const {
+      incomplete = {
+        bg: 'white',
+        content: ' '
+      },
+      complete = {
+        bg: 'green',
+        content: ' '
+      },
+      width = 25,
+      clear = true,
+      total = 100
+    } = this.options
 
-  const format = `:bar  ${':percent'.green} ${':elapseds'.blue}`
-  const bar = new ProgressBar(format, {
-    total,
-    width,
-    clear,
-    incomplete: incompleteBg ? incompleteContent[incompleteBg] : incompleteContent,
-    complete: completeBg ? completeContent[completeBg] : completeContent
-  })
+    const incompleteBg = getBg(incomplete.bg)
+    const completeBg = getBg(complete.bg)
 
-  let hasCompiled = false
-
-  return new webpack.ProgressPlugin(percent => {
-    !hasCompiled && process.stdout.write('\n') && (hasCompiled = true)
-    bar.update(percent)
-  })
+    const incompleteContent = getContent(incomplete.content)
+    const completeContent = getContent(complete.content)
+    const format = `:bar  ${':percent'.green} ${':elapseds'.blue}`
+    this.bar = new ProgressBar(format, {
+      total,
+      width,
+      clear,
+      incomplete: incompleteBg ? incompleteContent[incompleteBg] : incompleteContent,
+      complete: completeBg ? completeContent[completeBg] : completeContent
+    })
+  }
 }
