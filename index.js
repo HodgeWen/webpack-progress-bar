@@ -9,7 +9,7 @@ const getContent = (content) => (content !== undefined ? content : ' ')
 module.exports = class WebpackProgessBar extends ProgressPlugin {
   constructor(options = {}) {
     // 加入到钩子队列中
-    super((...percent) => {
+    super((percent) => {
       this.bar.update(percent)
     })
     this.options = options
