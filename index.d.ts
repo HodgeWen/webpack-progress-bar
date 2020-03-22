@@ -3,7 +3,7 @@ import { ProgressPlugin } from 'webpack'
 type Color = 'black' | 'red' | 'green' | 'yellow' | 'blue' | 'magenta' | 
 'cyan' | 'white' | 'gray' | 'grey'
 
-export default class WebpackProgessBar extends ProgressPlugin {
+declare class WebpackProgessBar extends ProgressPlugin {
   constructor(options?: {
     /** 总进度背景色 */
     incomplete?: {
@@ -33,3 +33,6 @@ export default class WebpackProgessBar extends ProgressPlugin {
 
   private _init(): void;
 }
+
+
+export = WebpackProgessBar
